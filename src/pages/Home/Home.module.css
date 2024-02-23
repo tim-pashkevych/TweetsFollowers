@@ -1,0 +1,30 @@
+.header {
+  color: var(--secondary-cl);
+  font-size: 18px;
+  text-align: center;
+
+  margin-top: 20px;
+}
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin: 20px;
+
+  justify-content: center;
+}
+
+.usersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  .userItem {
+    width: calc((100% - 10px * 2) / 3);
+  }
+}
+
+.noDataContainer {
+  text-align: center;
+}

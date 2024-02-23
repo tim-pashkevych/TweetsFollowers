@@ -1,0 +1,52 @@
+.userCardContainer {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  border-radius: 20px;
+  background: var(--background-cl);
+  background: var(--background-card-gradient);
+}
+
+.avatarImgWrap {
+  width: 97px;
+  height: 97px;
+  border-radius: 50%;
+
+  position: relative;
+  padding: 20px;
+
+  background: var(--card-circle-cl);
+  background: var(--card-circle-gradient);
+}
+.avatarImg {
+  width: 45px;
+  position: absolute;
+
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.userName {
+  font-size: 14px;
+}
+.selectUserBtn {
+  color: var(--secondary-cl);
+  border: none;
+  border-radius: 10px;
+  padding: 4% 16%;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  transition: background var(--trans);
+  margin-top: 9px;
+
+  background: var(--button-cl);
+
+  &:hover {
+    background: var(--button-hover-cl);
+  }
+}

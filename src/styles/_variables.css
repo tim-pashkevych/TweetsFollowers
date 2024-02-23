@@ -1,0 +1,38 @@
+:root {
+  /* Colors*/
+  --primary-cl: #ffffff;
+  --secondary-cl: #000000;
+
+  --button-cl: #e8d6fd;
+  --button-hover-cl: #c08dfa;
+  --button-accent-cl: #63d6b1;
+
+  --background-card-cl: rgb(77, 34, 169);
+  --background-card-gradient: radial-gradient(
+    circle,
+    rgba(77, 34, 169, 1) 0%,
+    rgba(91, 54, 159, 1) 0%,
+    rgba(88, 52, 161, 1) 20%,
+    rgba(79, 43, 170, 1) 67%,
+    rgba(77, 34, 169, 1) 100%
+  );
+
+  --card-line-cl: rgb(255, 255, 255);
+  --card-line-gradient: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 10%,
+    rgba(179, 141, 230, 1) 70%,
+    rgba(179, 141, 230, 1) 90%
+  );
+
+  --card-circle-cl: rgb(90, 56, 160);
+  --card-circle-gradient: radial-gradient(
+    circle,
+    rgba(90, 56, 160, 1) 55%,
+    rgba(179, 141, 230, 1) 56%,
+    #e7d7ff 66%
+  );
+
+  /* Transition */
+  --trans: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}

@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "MittleschriftCaps";
+  src: local("MittleschriftCaps"),
+    url("/fonts/mittelschrift.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Agnella Bold";
+  src: local("Agnella Bold"), url("/fonts/agnella-bold.ttf") format("truetype");
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-height: 100vh;
+
+  background-color: var(--primary-cl);
+  font-family: "Agnella Bold", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--primary-cl);
+}
+
+footer {
+  margin-top: auto;
+}
