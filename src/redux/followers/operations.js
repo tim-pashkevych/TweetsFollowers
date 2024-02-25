@@ -24,3 +24,15 @@ export const addFollowerThunk = createAsyncThunk(
     }
   },
 )
+
+export const deleteFollowerThunk = createAsyncThunk(
+  "followers/delete",
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await api.delete(`followers/${id}`)
+      return data
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message)
+    }
+  },
+)

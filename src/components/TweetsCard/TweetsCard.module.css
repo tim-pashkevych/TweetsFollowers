@@ -101,6 +101,7 @@
   align-items: center;
   justify-content: center;
 
+  color: var(--primary-cl);
   padding-top: 17%;
   text-transform: uppercase;
 }
@@ -131,6 +132,6 @@
   background: var(--button-accent-cl);
 
   &:hover {
-    cursor: default;
+    background: var(--button-accent-hover-cl);
   }
 }

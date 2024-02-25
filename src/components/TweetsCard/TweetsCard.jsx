@@ -1,4 +1,11 @@
-import styles from "./TweetsCard.module.css"
+import { useDispatch, useSelector } from "react-redux"
+import clsx from "clsx"
+
+import { selectAuthUser } from "@/redux/auth/slice"
+import {
+  addFollowerThunk,
+  deleteFollowerThunk,
+} from "@/redux/followers/operations"
 
 import goitImg from "@/assets/images/goit-logo.png"
 import tweetsImg from "@/assets/images/tweets.png"
@@ -6,10 +13,7 @@ import commentImg from "@/assets/images/comment.png"
 import commentHeartImg from "@/assets/images/comment-heart.png"
 import heartImg from "@/assets/images/heart.png"
 import avatarImg from "@/assets/images/avatar.png"
-import clsx from "clsx"
-import { useDispatch, useSelector } from "react-redux"
-import { selectAuthUser } from "@/redux/auth/slice"
-import { addFollowerThunk } from "@/redux/followers/operations"
+import styles from "./TweetsCard.module.css"
 
 export const TweetsCard = ({ user = {} }) => {
   const dispatch = useDispatch()
@@ -20,7 +24,11 @@ export const TweetsCard = ({ user = {} }) => {
   )
 
   const handleOnClick = () => {
-    dispatch(addFollowerThunk({ userId, followerId: authUser.id }))
+    if (isFollowing) {
+      dispatch(deleteFollowerThunk(isFollowing.id))
+    } else {
+      dispatch(addFollowerThunk({ userId, followerId: authUser.id }))
+    }
   }
 
   return (
@@ -49,7 +57,6 @@ export const TweetsCard = ({ user = {} }) => {
           })}
           type='button'
           onClick={handleOnClick}
-          disabled={isFollowing}
         >
           {isFollowing ? "Following" : "Follow"}
         </button>

@@ -1,5 +1,9 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit"
-import { addFollowerThunk, fetchFollowersThunk } from "./operations"
+import {
+  addFollowerThunk,
+  deleteFollowerThunk,
+  fetchFollowersThunk,
+} from "./operations"
 import { fetchUsersThunk } from "../users/operations"
 
 const initialState = { data: [], isLoading: false, error: null }
@@ -15,29 +19,47 @@ const slice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchFollowersThunk.fulfilled, (state, { payload }) => {
+        state.error = null
         state.data = payload
       })
-      .addCase(fetchFollowersThunk.pending, state => {
-        state.isLoading = true
-      })
-      .addCase(fetchUsersThunk.rejected, (state, { payload }) => {
-        state.error = payload
-      })
       .addCase(addFollowerThunk.fulfilled, (state, { payload }) => {
+        state.error = null
         state.data.push(payload)
       })
-      .addCase(addFollowerThunk.pending, state => {
-        state.isLoading = true
+      .addCase(deleteFollowerThunk.fulfilled, (state, { payload }) => {
+        state.error = null
+        state.data = state.data.filter(
+          follower => Number(follower.id) !== Number(payload.id),
+        )
       })
-      .addCase(addFollowerThunk.rejected, (state, { payload }) => {
-        state.error = payload
-      })
+      .addMatcher(
+        isAnyOf(
+          fetchFollowersThunk.pending,
+          addFollowerThunk.pending,
+          deleteFollowerThunk.pending,
+        ),
+        state => {
+          state.isLoading = true
+        },
+      )
+      .addMatcher(
+        isAnyOf(
+          fetchFollowersThunk.rejected,
+          addFollowerThunk.rejected,
+          deleteFollowerThunk.rejected,
+        ),
+        (state, { payload }) => {
+          state.error = payload
+        },
+      )
       .addMatcher(
         isAnyOf(
           fetchFollowersThunk.fulfilled,
           fetchFollowersThunk.rejected,
           addFollowerThunk.fulfilled,
           addFollowerThunk.rejected,
+          deleteFollowerThunk.fulfilled,
+          deleteFollowerThunk.rejected,
         ),
         state => {
           state.isLoading = false

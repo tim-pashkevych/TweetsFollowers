@@ -1,11 +1,15 @@
 import { fetchFollowersThunk } from "@/redux/followers/operations"
 import { fetchUsersThunk } from "@/redux/users/operations"
-import { selectUsersWithFollowers } from "@/redux/users/selectors"
+import {
+  selectIsLoadingUsers,
+  selectUsersWithFollowers,
+} from "@/redux/users/selectors"
 import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
 import styles from "./DashboardPage.module.css"
-import { TweetsCard } from "@/components"
+import { Loader, TweetsCard } from "@/components"
+import { selectIsLoadingFollowers } from "@/redux/followers/slice"
 
 const DashboardPage = () => {
   const dispatch = useDispatch()
