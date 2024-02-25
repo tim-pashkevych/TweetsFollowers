@@ -1,0 +1,126 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 50px;
+}
+
+/**
+  |============================
+  | Main container
+  |============================
+*/
+.tweetsCardContainer {
+  width: 480px;
+  height: 575px;
+  letter-spacing: 0.16em;
+
+  border-radius: 20px;
+  background: var(--background-cl);
+  background: var(--background-card-gradient);
+}
+
+/**
+  |============================
+  | Header
+  |============================
+*/
+.tweetsCardHeader {
+  position: relative;
+  height: 45.5%;
+}
+.goitImg {
+  width: 20%;
+  position: absolute;
+  top: 8%;
+  left: 5%;
+}
+.tweetsImg {
+  width: 48%;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.commentImg {
+  width: 10%;
+  position: absolute;
+  bottom: 16%;
+  left: 13%;
+}
+.commentHeartImg {
+  width: 10%;
+  position: absolute;
+  top: 12%;
+  right: 9%;
+}
+.heartImg {
+  width: 9%;
+  position: absolute;
+  bottom: 11%;
+  right: 16%;
+}
+
+/**
+  |============================
+  | Main
+  |============================
+*/
+.tweetsCardMain {
+  height: 10px;
+  position: relative;
+
+  background: var(--card-line-cl);
+  background: var(--card-line-gradient);
+}
+.avatarImgWrap {
+  width: 97px;
+  height: 97px;
+  border-radius: 50%;
+
+  position: absolute;
+  padding: 20px;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--card-circle-cl);
+  background: var(--card-circle-gradient);
+}
+.avatarImg {
+  width: 48%;
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/**
+  |============================
+  | Footer
+  |============================
+*/
+.tweetsCardFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  align-items: center;
+  justify-content: center;
+
+  padding-top: 17%;
+  text-transform: uppercase;
+}
+.button {
+  color: var(--secondary-cl);
+  border: none;
+  border-radius: 10px;
+  padding: 4% 16%;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  transition: background var(--trans);
+  margin-top: 9px;
+
+  background: var(--button-accent-cl);
+}

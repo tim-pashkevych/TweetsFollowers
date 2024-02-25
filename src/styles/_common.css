@@ -19,7 +19,7 @@ body {
   font-family: "Agnella Bold", sans-serif;
   font-style: normal;
   font-weight: 400;
-  color: var(--primary-cl);
+  color: var(--secondary-cl);
 }
 
 footer {

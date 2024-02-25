@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: var(--primary-cl);
+  padding: 10px 30px;
+
+  background: var(--background-cl);
+  background: var(--background-card-gradient);
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navMenu {
+  display: flex;
+  gap: 10px;
+
+  a {
+    text-decoration: underline;
+  }
+  a:hover {
+    color: var(--button-hover-cl);
+  }
+}

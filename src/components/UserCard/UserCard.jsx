@@ -1,10 +1,24 @@
-import { useContext } from "react"
-import { UserContext } from "@/context/ContextProvider"
+import { useDispatch, useSelector } from "react-redux"
+import { login, selectIsLoggedIn } from "@/redux/auth/slice"
+
 import avatarImg from "@/assets/images/avatar.png"
 import styles from "./UserCard.module.css"
+import { useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
 
 export const UserCard = ({ user }) => {
-  const { setAuthUser } = useContext(UserContext)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const isLoggedIn = useSelector(selectIsLoggedIn)
+
+  const handleLogin = () => {
+    dispatch(login(user))
+  }
+
+  if (isLoggedIn) {
+    navigate("/dashboard")
+  }
+
   return (
     <div className={styles.userCardContainer}>
       <div className={styles.avatarImgWrap}>
@@ -13,7 +27,7 @@ export const UserCard = ({ user }) => {
       <div className={styles.userName}>{user.name}</div>
       <button
         className={styles.selectUserBtn}
-        onClick={() => setAuthUser(user)}
+        onClick={handleLogin}
         type='button'
       >
         Select

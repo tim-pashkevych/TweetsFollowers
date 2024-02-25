@@ -6,31 +6,21 @@ import commentImg from "@/assets/images/comment.png"
 import commentHeartImg from "@/assets/images/comment-heart.png"
 import heartImg from "@/assets/images/heart.png"
 import avatarImg from "@/assets/images/avatar.png"
-import { toast } from "react-toastify"
-import { api } from "@/axiosConfig/tweetsCarsApi"
 import clsx from "clsx"
+import { useDispatch, useSelector } from "react-redux"
+import { selectAuthUser } from "@/redux/auth/slice"
+import { addFollowerThunk } from "@/redux/followers/operations"
 
-export const TweetsCard = ({
-  user = {},
-  userFollowers = [],
-  authUser = {},
-  onClick,
-}) => {
-  const { id: userId, tweets: userTweetsCnt } = user
-  const isFollowing = userFollowers.filter(
-    follower => Number(follower.followerId) === Number(authUser?.id),
-  ).length
+export const TweetsCard = ({ user = {} }) => {
+  const dispatch = useDispatch()
+  const authUser = useSelector(selectAuthUser)
+  const { id: userId, tweets: userTweetsCnt, followers } = user
+  const isFollowing = followers.find(
+    follower => Number(follower.followerId) === Number(authUser.id),
+  )
 
   const handleOnClick = () => {
-    if (isFollowing) {
-      toast.info("You are already following")
-      return
-    }
-
-    api
-      .post(`followers`, { userId, followerId: authUser?.id })
-      .then(resp => onClick(resp.data))
-      .catch(error => toast.error(error.message))
+    dispatch(addFollowerThunk({ userId, followerId: authUser.id }))
   }
 
   return (
@@ -50,7 +40,7 @@ export const TweetsCard = ({
       <div className={styles.tweetsCardFooter}>
         <div className={styles.tweetsCount}>{userTweetsCnt} Tweets</div>
         <div className={styles.tweetsFollowers}>
-          {userFollowers.length} Followers
+          {followers.length} Followers
         </div>
         <button
           className={clsx(styles.button, {
