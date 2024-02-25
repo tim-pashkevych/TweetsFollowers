@@ -5,7 +5,7 @@ import { Header, Loader } from ".."
 export const Layout = () => {
   return (
     <div>
-      <Suspense fallback={<Loader />}>
+      <Suspense>
         <Header />
         <Outlet />
       </Suspense>
