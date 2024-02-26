@@ -7,12 +7,15 @@ import {
 import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
-import styles from "./DashboardPage.module.css"
+import styles from "./TweetsPage.module.css"
 import { Loader, TweetsCard } from "@/components"
 import { selectIsLoadingFollowers } from "@/redux/followers/slice"
 import { nextPage, resetPage } from "@/redux/users/slice"
+import { useNavigate } from "react-router-dom"
+import clsx from "clsx"
 
-const DashboardPage = () => {
+const TweetsPage = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const users = useSelector(selectUsersWithFollowers)
 
@@ -24,6 +27,13 @@ const DashboardPage = () => {
 
   return (
     <div className={styles.container}>
+      <button
+        type='button'
+        className={clsx(styles.button, styles.goBackBtn)}
+        onClick={() => navigate("/")}
+      >
+        Back
+      </button>
       <ul className={styles.cardsContainer}>
         {users.map(user => (
           <li key={user.id}>
@@ -33,7 +43,7 @@ const DashboardPage = () => {
       </ul>
       <button
         type='button'
-        className={styles.loadMoreBtn}
+        className={clsx(styles.button, styles.loadMoreBtn)}
         onClick={() => dispatch(nextPage())}
       >
         Load more
@@ -42,4 +52,4 @@ const DashboardPage = () => {
   )
 }
 
-export default DashboardPage
+export default TweetsPage

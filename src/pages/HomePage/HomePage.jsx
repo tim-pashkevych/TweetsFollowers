@@ -7,8 +7,12 @@ import avatarImg from "@/assets/images/avatar.png"
 import clsx from "clsx"
 import styles from "./HomePage.module.css"
 import { Link } from "react-router-dom"
+import { useSelector } from "react-redux"
+import { selectIsLoggedIn } from "@/redux/auth/slice"
 
 const HomePage = () => {
+  const isLoggedIn = useSelector(selectIsLoggedIn)
+
   return (
     <div className={styles.container}>
       <div className={styles.tweetsCardContainer}>
@@ -25,8 +29,11 @@ const HomePage = () => {
           </div>
         </div>
         <div className={styles.tweetsCardFooter}>
-          <Link to='/login' className={styles.button}>
-            Login
+          <Link
+            to={isLoggedIn ? "/tweets" : "/login"}
+            className={styles.button}
+          >
+            {isLoggedIn ? "Tweets" : "Login"}
           </Link>
         </div>
       </div>

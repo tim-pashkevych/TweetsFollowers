@@ -7,7 +7,7 @@ export const PublicRoute = ({ children }) => {
   const location = useLocation()
 
   return isLoggedIn ? (
-    <Navigate to={location.state?.from || "/dashboard"} />
+    <Navigate to={location.state?.from || "/tweets"} />
   ) : (
     children
   )

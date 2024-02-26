@@ -16,7 +16,7 @@ export const UserCard = ({ user }) => {
   }
 
   if (isLoggedIn) {
-    navigate("/dashboard")
+    navigate("/tweets")
   }
 
   return (
