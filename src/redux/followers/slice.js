@@ -4,7 +4,6 @@ import {
   deleteFollowerThunk,
   fetchFollowersThunk,
 } from "./operations"
-import { fetchUsersThunk } from "../users/operations"
 
 const initialState = { data: [], isLoading: false, error: null }
 

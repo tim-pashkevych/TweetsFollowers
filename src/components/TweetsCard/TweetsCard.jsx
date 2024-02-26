@@ -13,6 +13,7 @@ import commentImg from "@/assets/images/comment.png"
 import commentHeartImg from "@/assets/images/comment-heart.png"
 import heartImg from "@/assets/images/heart.png"
 import avatarImg from "@/assets/images/avatar.png"
+
 import styles from "./TweetsCard.module.css"
 
 export const TweetsCard = ({ user = {} }) => {

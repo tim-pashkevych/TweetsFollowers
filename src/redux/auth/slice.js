@@ -1,4 +1,4 @@
-import { createSlice, isAllOf, isAnyOf } from "@reduxjs/toolkit"
+import { createSlice, isAnyOf } from "@reduxjs/toolkit"
 import { refreshUserThunk } from "./operations"
 
 const initialState = {

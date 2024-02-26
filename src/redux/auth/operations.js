@@ -1,5 +1,5 @@
-import { api } from "@/axiosConfig/tweetsCarsApi"
 import { createAsyncThunk } from "@reduxjs/toolkit"
+import { api } from "@/axiosConfig/tweetsCarsApi"
 
 export const refreshUserThunk = createAsyncThunk(
   "refresh",

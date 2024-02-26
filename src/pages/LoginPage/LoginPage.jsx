@@ -1,11 +1,12 @@
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
+
+import { fetchUsersThunk } from "@/redux/users/operations"
+import { nextPage, resetPage } from "@/redux/users/slice"
 import { selectPaginatedUsers } from "@/redux/users/selectors"
 import { UserCard } from "@/components"
 
 import styles from "./LoginPage.module.css"
-import { useEffect } from "react"
-import { fetchUsersThunk } from "@/redux/users/operations"
-import { nextPage, resetPage } from "@/redux/users/slice"
 
 const LoginPage = () => {
   const dispatch = useDispatch()

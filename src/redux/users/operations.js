@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { api } from "@/axiosConfig/tweetsCarsApi"
-import { fetchFollowersThunk } from "../followers/operations"
 
 export const fetchUsersThunk = createAsyncThunk(
   "users/get",

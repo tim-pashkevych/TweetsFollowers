@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 import { login, selectIsLoggedIn } from "@/redux/auth/slice"
 
 import avatarImg from "@/assets/images/avatar.png"
 import styles from "./UserCard.module.css"
-import { useNavigate } from "react-router-dom"
-import { toast } from "react-toastify"
 
 export const UserCard = ({ user }) => {
   const dispatch = useDispatch()
