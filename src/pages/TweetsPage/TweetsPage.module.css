@@ -6,6 +6,13 @@
   align-items: center;
   justify-content: center;
 }
+.controls {
+  display: flex;
+  gap: 20px;
+
+  justify-content: center;
+  align-items: baseline;
+}
 
 .cardsContainer {
   display: flex;
@@ -19,7 +26,7 @@
   color: var(--primary-cl);
   border: none;
   border-radius: 10px;
-  padding: 20px 50px;
+  padding: 17px 50px;
   font-size: 1.4em;
   text-transform: uppercase;
   transition: background var(--trans);
@@ -38,5 +45,18 @@
 
   &:hover {
     background: var(--button-hover-cl);
+  }
+}
+
+.filter {
+  padding: 12px;
+  background: var(--button-cl) !important;
+  border: none;
+  border-radius: 10px !important;
+  border-width: 0 !important;
+
+  div > div {
+    color: var(--secondary-cl);
+    font-size: 1.4em;
   }
 }

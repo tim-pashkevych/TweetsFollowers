@@ -5,6 +5,7 @@ const initialState = {
   data: [],
   page: 1,
   itemsPerPage: 3,
+  filter: "all",
   isLoading: false,
   error: null,
 }
@@ -15,9 +16,14 @@ const slice = createSlice({
   reducers: {
     resetPage: state => {
       state.page = 1
+      state.filter = "all"
     },
     nextPage: state => {
       state.page = ++state.page
+    },
+    setFilter: (state, { payload }) => {
+      state.filter = payload
+      state.page = 1
     },
   },
   extraReducers: builder => {
@@ -41,4 +47,4 @@ const slice = createSlice({
 })
 
 export const usersReducer = slice.reducer
-export const { nextPage, resetPage } = slice.actions
+export const { nextPage, resetPage, setFilter } = slice.actions
