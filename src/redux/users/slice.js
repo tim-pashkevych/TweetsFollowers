@@ -1,11 +1,25 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit"
 import { fetchUsersThunk } from "./operations"
 
-const initialState = { data: [], isLoading: false, error: null }
+const initialState = {
+  data: [],
+  page: 1,
+  itemsPerPage: 3,
+  isLoading: false,
+  error: null,
+}
 
 const slice = createSlice({
   name: "users",
   initialState,
+  reducers: {
+    resetPage: state => {
+      state.page = 1
+    },
+    nextPage: state => {
+      state.page = ++state.page
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchUsersThunk.fulfilled, (state, { payload }) => {
@@ -27,3 +41,4 @@ const slice = createSlice({
 })
 
 export const usersReducer = slice.reducer
+export const { nextPage, resetPage } = slice.actions

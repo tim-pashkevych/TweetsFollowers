@@ -1,7 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  align-items: center;
+  justify-content: center;
+}
 .usersContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  justify-content: center;
 
   padding: 50px;
+}
+
+.loadMoreBtn {
+  color: var(--secondary-cl);
+  border: none;
+  border-radius: 10px;
+  padding: 20px 50px;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  transition: background var(--trans);
+  margin-top: 9px;
+
+  background: var(--button-accent-cl);
+
+  &:hover {
+    background: var(--button-accent-hover-cl);
+  }
 }

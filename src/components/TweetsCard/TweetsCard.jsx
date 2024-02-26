@@ -42,13 +42,18 @@ export const TweetsCard = ({ user = {} }) => {
       </div>
       <div className={styles.tweetsCardMain}>
         <div className={styles.avatarImgWrap}>
-          <img src={avatarImg} className={styles.avatarImg} />
+          <img
+            src={avatarImg}
+            className={styles.avatarImg}
+            alt="User's provile picture"
+          />
         </div>
       </div>
       <div className={styles.tweetsCardFooter}>
         <div className={styles.tweetsCount}>{userTweetsCnt} Tweets</div>
         <div className={styles.tweetsFollowers}>
-          {followers.length} Followers
+          {followers.length.toFixed().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+          Followers
         </div>
         <button
           className={clsx(styles.button, {

@@ -1,3 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  align-items: center;
+  justify-content: center;
+}
+
 .cardsContainer {
   display: flex;
   flex-wrap: wrap;
@@ -6,4 +15,21 @@
   margin: 20px;
 
   justify-content: center;
+}
+
+.loadMoreBtn {
+  color: var(--primary-cl);
+  border: none;
+  border-radius: 10px;
+  padding: 20px 50px;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  transition: background var(--trans);
+  margin-top: 9px;
+
+  background: var(--card-circle-cl);
+
+  &:hover {
+    background: var(--button-hover-cl);
+  }
 }
